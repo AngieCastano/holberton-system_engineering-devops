@@ -1,0 +1,4 @@
+#!/bin/bash
+#listing files
+ls
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+#printing working directory
+ls
+
