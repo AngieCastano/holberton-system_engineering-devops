@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(awk 'NR == 3' iacta)"
+echo "$(head -3 iacta | tail -1)"
