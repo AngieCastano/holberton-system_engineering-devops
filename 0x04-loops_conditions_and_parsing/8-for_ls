@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#content of the current directory, list formated, name after the first dash
+LIST="$(ls)"
+for i in $LIST; do
+    echo "$i"| cut -d "-" -f 2
+done
