@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Prints 10 times Holberton school using the until loop
+counter=1
+
+until [ $counter -gt 10 ]
+do
+    echo "Holberton School"
+    ((counter++))
+done
