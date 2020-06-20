@@ -6,7 +6,7 @@ do
     echo "Hour :$x"
     ((x++))
     y=1
-    while [ $y -lt 60 ]
+    while [ $y -le 59 ]
     do
 	echo "$y"
 	((y++))
