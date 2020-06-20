@@ -3,7 +3,7 @@
 x=0
 while [ $x -le 12 ]
 do
-    echo "Hour :$x"
+    echo "Hour: $x"
     ((x++))
     y=1
     while [ $y -le 59 ]
