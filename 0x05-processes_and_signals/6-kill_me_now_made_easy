@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kills without using kill command
+pkill -9 4-to_infinity_and_beyond
