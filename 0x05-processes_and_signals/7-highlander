@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#caugths signals and executes a function
+trap 'funct' 15
+funct()
+{
+    echo "I am invincible!!!"
+}
+x=1
+while [ $x -eq 1 ]
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
