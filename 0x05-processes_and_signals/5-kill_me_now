@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #kills the has process
-kill $(pgrep 4-to_infinity)
+kill "$(pgrep -f 4-to_infinity_and_beyond)"
 
