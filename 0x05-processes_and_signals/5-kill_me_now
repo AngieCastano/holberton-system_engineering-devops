@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 #kills the has process
-kill $BASHPID
+kill $(pgrep -l bash)
