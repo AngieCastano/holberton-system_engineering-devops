@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #kills the has process
 kill $(ps ax  | grep 4-to_infinity)
+
