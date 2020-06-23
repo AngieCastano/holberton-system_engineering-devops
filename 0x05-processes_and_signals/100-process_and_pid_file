@@ -2,7 +2,7 @@
 #manages different signals, creates and deleates files with its pid inside
 trap funct1 15
 trap funct2 2
-trap funct 3
+trap funct3 3
 funct3()
 {
     rm var/run/holbertonscript.pid
