@@ -1,25 +1,22 @@
 #!/usr/bin/env bash
 #manages another process
-for arg in "$@"
-do
-    if [ "$arg" == "start" ]
-    then
-        sudo service manage_my_process start
-	pgrep -f manage_my_process > /var/run/my_process.pid
-	echo "manage_my_process started"
-    elif [ "$arg" == "stop" ]
-    then
-	sudo service manage_my_process stop
-        rm /var/run/my_process.pid
-	echo "manage_my_process stopped"
-    elif [ "$arg" == "restart" ]
-    then
-	sudo service manage_my_process stop
-	rm /var/run/my_process.pid
-	sudo service manage_my_process start
-	pgrep -f manage_my_process > /var/run/my_process.pid
-	echo "manage_my_process restarted"
-    else
-	echo "Usage: manage_my_process {start|stop|restart}"
-    fi
-done
+if [ "$1" == "start" ]
+then
+    sudo service manage_my_process start
+    pgrep -f manage_my_process > /var/run/my_process.pid
+    echo "manage_my_process started"
+elif [ "$1" == "stop" ]
+then
+    sudo service manage_my_process stop
+    rm /var/run/my_process.pid
+    echo "manage_my_process stopped"
+elif [ "$1" == "restart" ]
+then
+    sudo service manage_my_process stop
+    rm /var/run/my_process.pid
+    sudo service manage_my_process start
+    pgrep -f manage_my_process > /var/run/my_process.pid
+    echo "manage_my_process restarted"
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi
