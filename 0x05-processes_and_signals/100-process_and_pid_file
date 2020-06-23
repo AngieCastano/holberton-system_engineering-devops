@@ -3,6 +3,7 @@
 trap funct1 15
 trap funct2 2
 trap funct 3
+funct3()
 {
     rm var/run/holbertonscript.pid
 }
