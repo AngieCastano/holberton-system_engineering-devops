@@ -16,8 +16,7 @@ funct2()
 {
     echo "Y U no love me?!"
 }
-pid_var="$(grep ^Pid: /proc/self/status | awk '{print $2}')"
-echo "$pid_var" > /var/run/holbertonscript.pid
+echo "$$" > /var/run/holbertonscript.pid
 x=1
 while [ $x -eq 1 ]
 do
