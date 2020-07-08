@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+"""Pings received"""
+ping -c 5 "$@"

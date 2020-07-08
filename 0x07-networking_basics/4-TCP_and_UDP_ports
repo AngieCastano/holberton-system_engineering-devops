@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+"""TCP/UDP Ports"""
+netstat -ltup
