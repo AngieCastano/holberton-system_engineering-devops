@@ -1,0 +1,1 @@
+This is about to familiarize myself with the basic level syntax of puppet
