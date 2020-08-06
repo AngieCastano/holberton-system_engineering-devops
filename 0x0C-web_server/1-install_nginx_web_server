@@ -2,7 +2,7 @@
 # configurating nginx listening the 80 port
 sudo apt update
 sudo apt-get install nginx
-sudo service nginx stop
 sudo ufw allow 'Nginx HTTP'
+sudo service nginx start
 sudo echo "Holberton School" > /var/www/html/index.nginx-debian.html
 curl 35.196.114.247
