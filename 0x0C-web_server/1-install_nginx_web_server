@@ -3,5 +3,5 @@
 sudo apt update
 sudo apt-get install nginx
 sudo ufw allow 'Nginx HTTP'
-sudo echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
+sudo echo "Holberton School" > /var/www/html/index.nginx-debian.html
 curl 35.196.114.247
