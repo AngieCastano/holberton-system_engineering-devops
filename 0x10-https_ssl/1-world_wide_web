@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Prints subdomains info
+# \"Redirects ip\"
 
 subdomain_inf () {
     RECORD_TYPE=$(dig "$2"."$1" | awk 'FNR == 14 {print}' | awk '{print $4}')
