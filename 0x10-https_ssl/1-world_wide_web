@@ -2,9 +2,7 @@
 # \" redireects ip \"
 
 only_one () {
-    RT=$(dig +noall +answer "$2"."$1" | awk '{print $4}')
-    DEST=$(dig +short "$2"."$1")
-    echo "The subdomain $2 is a $RT record and points to $DEST"
+    echo "The subdomain $2 is a ""$(dig +noall +answer "$2"."$1" | awk '{print $4}')"" record and points to ""$(dig +short "$2"."$1")"
 }
 
 if [ $# -eq 1 ]
