@@ -1,26 +1,19 @@
 #!/usr/bin/env bash
-#\"Redirect to another IP\"
-func2 () {
-    if [ -z "$1" ]                           # Is parameter #1 zero length?
-    then
-	echo ""  # Or no parameter passed.
-    else
-	if [ "$2" ]
-	then
-	    arg_2=${2-$DEFAULT}
-	fi
-    fi
-    echo -n "The subdomain is a "
-    echo -n "$(dig "$arg_2"."$1" | awk 'FNR == 14 {print}' | awk '{print $4}') "
-    echo -n "record and points to "
-    echo "$(dig "$arg_2"."$1"| awk 'FNR == 14 {print}' | awk '{print $NF}')"
+# Prints subdomains info
+
+subdomain_inf () {
+    RECORD_TYPE=$(dig "$2"."$1" | awk 'FNR == 14 {print}' | awk '{print $4}')
+    DESTINATION=$(dig "$2"."$1"| awk 'FNR == 14 {print}' | awk '{print $NF}')
+    echo "The subdomain $2 is a $RECORD_TYPET record and points to $DESTINATION"
 }
-if [ $# -eq 1 ];
+
+if [ $# -eq 1 ]
 then
-    func2 "$1" 'www'
-    func2 "$1" 'lb-01'
-    func2 "$1" 'web-01'
-    func2 "$1" 'web-02'
-else
-    func2 "$1" "$2"
+    subdomain_inf $1 "www"
+    subdomain_inf $1 "lb-01"
+    subdomain_inf $1 "web-01"
+    subdomain_inf $1 "web-02"
+elif [ $# -gt 1 ]
+then
+    subdomain_inf $1 $2
 fi
