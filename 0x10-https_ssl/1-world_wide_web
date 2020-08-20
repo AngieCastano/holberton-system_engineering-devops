@@ -2,8 +2,8 @@
 # \" redireects ip \"
 
 only_one () {
-    RT=$(dig "$2"."$1" | awk 'FNR == 14 {print}' | awk '{print $4}')
-    DEST=$(dig "$2"."$1"| awk 'FNR == 14 {print}' | awk '{print $NF}')
+    RT=$(dig "$2"."$1" |  grep -A1 "ANSWER SECTION"| awk 'FNR == 2 {print}' | awk '{print $4}')
+    DEST=$(dig "$2"."$1"|  grep -A1 "ANSWER SECTION" | awk 'FNR == 2 {print}' | awk '{print $NF}')
     echo "The subdomain $2 is a $RT record and points to $DEST"
 }
 
