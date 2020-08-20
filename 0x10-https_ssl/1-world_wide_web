@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # \" redireects ip \"
 
-subdomain_inf () {
+only_one () {
     RT=$(dig "$2"."$1" | awk 'FNR == 14 {print}' | awk '{print $4}')
     DEST=$(dig "$2"."$1"| awk 'FNR == 14 {print}' | awk '{print $NF}')
     echo "The subdomain $2 is a $RT record and points to $DEST"
@@ -9,11 +9,11 @@ subdomain_inf () {
 
 if [ $# -eq 1 ]
 then
-    subdomain_inf "$1" "www"
-    subdomain_inf "$1" "lb-01"
-    subdomain_inf "$1" "web-01"
-    subdomain_inf "$1" "web-02"
+    only_one "$1" "www"
+    only_one "$1" "lb-01"
+    only_one "$1" "web-01"
+    only_one "$1" "web-02"
 elif [ $# -eq 2 ]
 then
-    subdomain_inf "$1" "$2"
+    only_one "$1" "$2"
 fi
