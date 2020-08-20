@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# \"Redirects ip\"
+# Prints subdomains info
 
 subdomain_inf () {
-    RECORD_TYPE=$(dig "$2"."$1" | awk 'FNR == 14 {print}' | awk '{print $4}')
-    DESTINATION=$(dig "$2"."$1"| awk 'FNR == 14 {print}' | awk '{print $NF}')
-    echo "The subdomain $2 is a $RECORD_TYPET record and points to $DESTINATION"
+    RT=$(dig $2.$1 | grep -A1 'ANSWER SECTION' | awk '{print $4}' | tail -n 1)
+    DEST=$(dig $2.$1 | grep -A1 'ANSWER SECTION' | awk '{print $5}' | tail -n 1)
+    echo "The subdomain $2 is a $RT record and points to $DEST"
 }
 
 if [ $# -eq 1 ]
