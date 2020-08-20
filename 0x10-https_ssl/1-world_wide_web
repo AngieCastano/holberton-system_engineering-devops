@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Prints subdomains info
+# \" redireects ip \"
 
 subdomain_inf () {
-    RT=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $4}' | tail -n 1)
-    DEST=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $5}' | tail -n 1)
+    RT=$(dig "$2"."$1" | awk 'FNR == 14 {print}' | awk '{print $4}')
+    DEST=$(dig "$2"."$1"| awk 'FNR == 14 {print}' | awk '{print $NF}')
     echo "The subdomain $2 is a $RT record and points to $DEST"
 }
 
@@ -13,6 +13,7 @@ then
     subdomain_inf "$1" "lb-01"
     subdomain_inf "$1" "web-01"
     subdomain_inf "$1" "web-02"
-else
+elif [ $# -eq 2 ]
+then
     subdomain_inf "$1" "$2"
 fi
