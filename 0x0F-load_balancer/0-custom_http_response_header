@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #lets us know what server is using
-sudo apt-get install -y nginx
-sudo sed '/default_server;/a add_header X-Served-By 1634-web-01;' /etc/nginx/sites-available/default > /etc/nginx/sites-available/default
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo echo "Holberton School" > /var/www/html/index.nginx-debian.html
+sudo sed '/listen 80 default_server;/a add_header X-Served-By 1634-web-01;' /etc/nginx/sites-available/default > /etc/nginx/sites-available/default
 sudo service nginx restart
