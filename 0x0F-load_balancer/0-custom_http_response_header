@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#lets us know what server is using
+sed '/listen [::]:80 default_server;/a add_header X-Served-By 1634-web-02;' /etc/nginx/sites-available/default > /etc/nginx/sites-available/default
