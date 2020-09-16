@@ -23,12 +23,9 @@ if __name__ == "__main__":
     print("Employee {} is done with tasks({}/{}):".format(us, len(dt), len(t)))
     for task in list_of_done_tasks:
         print("\t {}".format(task.get("title")))
-    fieldnames = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
 
     with open("USER_ID.csv", "w", newline="") as csv_file:
-        thewriter = csv.DictWriter(csv_file, fieldnames=fieldnames)
-        thewriter.writeheader()
+        thewriter = csv.writer(csv_file)
         for task in list_of_tasks:
-            thewriter.writerow({"USER_ID": sys.argv[1], "USERNAME": us,
-                                "TASK_COMPLETED_STATUS": task.get("completed"),
-                                "TASK_TITLE": task.get("title")})
+            thewriter.writerow([sys.argv[1], user_name,
+                                task.get("completed"), task.get("title")])
