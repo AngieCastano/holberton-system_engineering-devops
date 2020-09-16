@@ -21,12 +21,9 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/{}".format(getting)
     response = requests.get(url)
     t = list_of_tasks = response.json()
-    print("Employee {} is done with tasks({}/{}):".format(us, len(dt), len(t)))
-    for task in list_of_done_tasks:
-        print("\t {}".format(task.get("title")))
 
     with open("USER_ID.csv", "w", newline="") as csv_file:
-        thewriter = csv.writer(csv_file)
+        thewriter = csv.writer(csv_file, quotechar='\"', )
         for task in list_of_tasks:
-            thewriter.writerow([sys.argv[1], user_name,
+            thewriter.writerow(["{}".format(sys.argv[1]), user_name,
                                 task.get("completed"), task.get("title")])
