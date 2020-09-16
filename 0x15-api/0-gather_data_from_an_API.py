@@ -21,4 +21,4 @@ if __name__ == "__main__":
     t = ist_of_tasks = response.json()
     print("Employee {} is done with tasks({}/{}):".format(us, len(dt), len(t)))
     for task in list_of_done_tasks:
-        print("\t{}".format(task.get("title")))
+        print("\t {}".format(task.get("title")))
