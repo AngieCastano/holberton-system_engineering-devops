@@ -23,7 +23,7 @@ if __name__ == "__main__":
     t = list_of_tasks = response.json()
 
     with open("USER_ID.csv", "w", newline="") as csv_file:
-        thewriter = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+        thewriter = csv.writer(csv_file, quotechar='"', quoting=csv.QUOTE_ALL)
         for task in list_of_tasks:
             thewriter.writerow(["{}".format(sys.argv[1]), user_name,
                                 task.get("completed"), task.get("title")])
