@@ -10,6 +10,9 @@ def top_ten(subreddit):
     url = "https://www.reddit.com/r/{}/.json?count=10".format(subreddit)
     headers = {'User-agent': 'Chrome'}
     response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        print(titles)
+        return
     list_of_dictionary = response.json()
     for key, diction in list_of_dictionary.items():
         if type(diction) == dict:
@@ -23,3 +26,5 @@ def top_ten(subreddit):
                                         if m_s_k == "title":
                                             titles = m_s_value
                                             print(titles)
+    if not titles:
+        print(titles)
