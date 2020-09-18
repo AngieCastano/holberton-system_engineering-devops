@@ -8,10 +8,9 @@ def recurse(subreddit, hot_list=[], after="start"):
     """recursive function """
     if not after:
         return(hot_list)
-    url = "https://www.reddit.com/r/{}/.json?after={}".format(subreddit, after)
+    url = "https://www.reddit.com/search/.json?q={}&sort=hot&after={}".format(subreddit, after)
     headers = {'User-agent': 'Chrome'}
     response = requests.get(url, headers=headers)
-    print(after)
     after = response.json()['data']['after']
     t = [item['data']['title'] for item in response.json()['data']['children']]
     hot_list.extend(t)
