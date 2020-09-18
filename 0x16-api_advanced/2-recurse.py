@@ -17,4 +17,4 @@ def recurse(subreddit, hot_list=[], after="start"):
     after = response.json()['data']['after']
     t = [item['data']['title'] for item in response.json()['data']['children']]
     hot_list.extend(t)
-    recurse(subreddit, hot_list, after)
+    return (recurse(subreddit, hot_list, after))
