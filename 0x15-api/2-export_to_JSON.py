@@ -6,25 +6,20 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
-    getting = "users?id={}".format(sys.argv[1])
-    response_id = requests.get("{}{}".format(url, getting))
-    list_of_dictionary = response_id.json()
-    us = user_name = list_of_dictionary[0].get("name")
-    to_do_format = "todos?userId={}&completed=true".format(sys.argv[1])
-    to_do_response = requests.get("{}{}".format(url, to_do_format))
-    dt = list_of_done_tasks = to_do_response.json()
-    getting = "todos?userId={}".format(sys.argv[1])
-    response = requests.get("{}{}".format(url, getting))
-    t = ist_of_tasks = response.json()
+    _id = int(sys.argv[1])
+    url = 'https://jsonplaceholder.typicode.com/users/{}'.format(_id)
+    url_1 = 'https://jsonplaceholder.typicode.com/todos?userId={}'.format(_id)
+    all_todo = requests.get(url_1)
+    user_name = requests.get(url).json()['username']
     inner_list = []
-    for task in list_of_done_tasks:
+
+    for task in all_todo.json():
         inner_list.append(
             {"task": task.get("title"),
              "completed": task.get("completed"),
              "username": user_name}
         )
-    last_dictionary = {sys.argv[1]: inner_list}
+    last_dictionary = {_id: inner_list}
 
     with open("{}.json".format(sys.argv[1]), 'w') as f:
                     json.dump(last_dictionary, f)
