@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" This is about consuming APIs, GET mehod generate json of every id"""
+""" Generate json of every id with API"""
 
 import json
 import requests
