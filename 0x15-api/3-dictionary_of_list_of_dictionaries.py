@@ -4,7 +4,9 @@
 import json
 import requests
 
-if __name__ == "__main__":
+
+def json_of_every_id():
+    """json of every id"""
     url_id = 'https://jsonplaceholder.typicode.com/users/'
     get_the_ids = requests.get(url_id).json()
     only_ids = []
@@ -29,3 +31,7 @@ if __name__ == "__main__":
 
     with open("todo_all_employees.json", 'w') as f:
         json.dump(last_dictionary, f)
+
+
+if __name__ == "__main__":
+    json_of_every_id()
