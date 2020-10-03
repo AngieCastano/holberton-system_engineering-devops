@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-""" This is about consuming APIs, GET mehod"""
+""" This is about consuming APIs, GET mehod generate json of every id"""
 
 import json
 import requests
-import sys
 
 if __name__ == "__main__":
     url_id = 'https://jsonplaceholder.typicode.com/users/'
