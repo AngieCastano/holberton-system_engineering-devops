@@ -9,7 +9,7 @@ if __name__ == "__main__":
     get_the_ids = requests.get(url_id).json()
     only_ids = []
     for i, mini_dict in enumerate(get_the_ids):
-            only_ids.append(get_the_ids[i].get("id"))
+        only_ids.append(get_the_ids[i].get("id"))
     last_dictionary = {}
     for _id in only_ids:
         url = 'https://jsonplaceholder.typicode.com/users/{}'.format(_id)
