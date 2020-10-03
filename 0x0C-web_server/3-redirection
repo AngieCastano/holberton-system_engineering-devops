@@ -2,7 +2,8 @@
 # configurating nginx listening the 80 port
 sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo chmod 777 /var/www/html/index.html
+sudo echo "Holberton School" > /var/www/html/index.html
 service nginx start
 url="google.com"
 sudo sed -i "/server_name _;/ a\\\trewrite ^/redirect_me $url" /etc/nginx/sites-available/default
