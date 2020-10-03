@@ -3,4 +3,7 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo echo "Holberton School" | sudo tee /var/www/html/index.html
-sudo service nginx start
+service nginx start
+url="google.com"
+sudo sed -i "/server_name _;/ a\\\trewrite ^/redirect_me $url" /etc/nginx/sites-available/default
+service nginx start
